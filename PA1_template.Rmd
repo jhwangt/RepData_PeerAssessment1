@@ -38,7 +38,7 @@ median(total.steps, na.rm=TRUE)
 
 Make a time series plot (i.e. 𝚝𝚢𝚙𝚎 = "𝚕") of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all days (y-axis)
 
-```{r}
+```{r avgStepsByDay}
 library(ggplot2)
 averages <- aggregate(x=list(steps=data$steps), by=list(interval=data$interval),
                       FUN=mean, na.rm=TRUE)
@@ -111,7 +111,7 @@ str(data)
 
 Make a panel plot containing a time series plot (i.e. 𝚝𝚢𝚙𝚎 = "𝚕") of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all weekday days or weekend days (y-axis). See the README file in the GitHub repository to see an example of what this plot should look like using simulated data.
 
-```{r }
+```{r week_diff}
 par(mfrow=c(2,1))
 for (type in c("Weekend", "Weekday")) {
     steps.type <- aggregate(steps ~ interval,
